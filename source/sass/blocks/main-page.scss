@@ -1,11 +1,10 @@
 .main-page {
-  font-family: "Trebuchet-MS", sans-serif, "Arial", sans-serif;
+  font-family: "Trebuchet-MS", "Arial", sans-serif;
   background-image: url("../img/bg.png");
 }
 
 .main-page__catalog {
   max-width: 1120px;
-  width: 1120px;
   display: flex;
   flex-wrap: wrap;
   gap: 80px;
@@ -15,4 +14,34 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+.main-page__title {
+  position: relative;
+  top: 105px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 100;
+  font-size: 36px;
+  line-height: 42px;
+  color: #ffffff;
+  text-shadow: 0px 1px 1px #000000;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .main-page__catalog {
+    max-width: 768px;
+    min-width: 320px;
+    justify-content: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: auto;
+    transform: translate(0, 0);
+  }
+
+  .main-page__title {
+    position: relative;
+    top: auto;
+  }
 }

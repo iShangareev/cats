@@ -29,11 +29,11 @@ const cardHandlers = () => {
 
     if (cardSelected && !cardDisabled) {
       card.onmouseover = function () {
-        cardTagline.innerHTML = "Сказочное заморское яство";
+        cardTagline.innerText = "Сказочное заморское яство";
         cardTagline.style.color = "#666666";
       };
       card.onmouseout = function () {
-        cardTagline.innerHTML = "Котэ не одобряет?";
+        cardTagline.innerText = "Котэ не одобряет?";
         cardTagline.style.color = "#e62e7a";
       };
     } else if (!cardSelected) {
