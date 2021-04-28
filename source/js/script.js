@@ -8,7 +8,7 @@ const cardHandlers = () => {
     const cardWrap = e.target.closest(".product-wrapper");
     const card = cardWrap.querySelector(".product-card");
     const cardText = cardWrap.querySelector(".product-card__ad-text");
-    const cardTag = cardWrap.querySelector(".product-card__ad-tag");
+    const cardTag = cardWrap.querySelector(".product-card__ad-text-selected");
     const cardTagline = cardWrap.querySelector(".product-card__tagline");
     const cardDisabled = card.classList.contains("product-card--disabled");
     const cardSelected = !card.classList.contains("product-card--selected");
@@ -24,7 +24,7 @@ const cardHandlers = () => {
     if (!cardDisabled) {
       card.classList.toggle("product-card--selected");
       cardText.classList.toggle("product-card__ad-text--disabled");
-      cardTag.classList.toggle("product-card__ad-tag--open");
+      cardTag.classList.toggle("product-card__ad-text-selected--open");
     }
 
     if (cardSelected && !cardDisabled) {
