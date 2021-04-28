@@ -10,6 +10,9 @@
   -webkit-clip-path: polygon(0% 9%, 13% 0%, 100% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0% 9%, 13% 0%, 100% 0%, 100% 100%, 0% 100%);
   overflow: hidden;
+  color: #666666;
+  font-size: 14px;
+  cursor: pointer;
   &:before {
     position: absolute;
     content: "";
@@ -22,8 +25,133 @@
   }
 }
 
+.product-card__customer-status {
+  display: none;
+}
+
+.product-card--selected {
+  border: 4px solid #d91667;
+  &:before {
+    background-color: #d91667;
+  }
+  & .product-card__weight {
+    background: #d91667;
+  }
+}
+
+.product-card--disabled {
+  border: 4px solid #b3b3b3;
+  & > *:not(.product-card__weight) {
+    opacity: 0.3;
+  }
+  &:before {
+    background: #b3b3b3;
+  }
+
+  & .product-card__weight {
+    background: #b3b3b3;
+  }
+
+  & .product-card__customer-status {
+    display: block;
+  }
+}
+
+.product-card__info {
+  margin-left: 42px;
+  margin-right: 62px;
+}
+
 .product-card__image {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.product-card__tagline {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.product-card__name {
+  margin: 0;
+  font-size: 48px;
+  color: #000000;
+}
+
+.product-card__tase-info {
+  font-size: 24px;
+  color: #000000;
+}
+
+.product-card__gift-content {
+  margin-top: 15px;
+}
+
+.product-card__gift-text {
+  margin: 0;
+}
+
+.product-card__weight {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1698d9;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.product-card__weight-number {
+  font-size: 42px;
+  line-height: 30px;
+}
+
+.product-card__weight-text {
+  font-size: 21px;
+}
+
+.product-card__ad-content {
+  padding-top: 14px;
+}
+
+.product-card__ad-text {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.product-card__ad-text--disabled {
+  display: none;
+}
+
+.product-card__ad-tag {
+  display: none;
+  color: #ffffff;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.product-card__ad-tag--open {
+  display: block;
+  margin: 0;
+}
+
+.product-card__buy {
+  display: inline-block;
+  font-size: 13px;
+  color: #1698d9;
+  text-decoration: none;
+  border-bottom: 1px dashed #107cb2;
 }

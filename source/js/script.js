@@ -1,15 +1,46 @@
-'use strict';
-var pageHeader = document.querySelector('.page-header');
-var headerToggle = document.querySelector('.page-header__toggle');
+"use strict";
+const productCatalog = document.querySelector(".main-page__catalog");
 
-pageHeader.classList.remove('page-header--nojs');
+const cardHandlers = () => {
+  productCatalog.addEventListener("click", (e) => {
+    e.preventDefault();
 
-headerToggle.addEventListener('click', function () {
-  if (pageHeader.classList.contains('page-header--closed')) {
-    pageHeader.classList.remove('page-header--closed');
-    pageHeader.classList.add('page-header--opened');
-  } else {
-    pageHeader.classList.add('page-header--closed');
-    pageHeader.classList.remove('page-header--opened');
-  }
-});
+    const cardWrap = e.target.closest(".product-wrapper");
+    const card = cardWrap.querySelector(".product-card");
+    const cardText = cardWrap.querySelector(".product-card__ad-text");
+    const cardTag = cardWrap.querySelector(".product-card__ad-tag");
+    const cardTagline = cardWrap.querySelector(".product-card__tagline");
+    const cardDisabled = card.classList.contains("product-card--disabled");
+    const cardSelected = !card.classList.contains("product-card--selected");
+    const cardBuy = cardWrap.querySelector(".product-card__buy");
+
+    if (!card || !cardBuy) {
+      return;
+    }
+    if (!productCatalog.contains(card) || !productCatalog.contains(cardBuy)) {
+      return;
+    }
+
+    if (!cardDisabled) {
+      card.classList.toggle("product-card--selected");
+      cardText.classList.toggle("product-card__ad-text--disabled");
+      cardTag.classList.toggle("product-card__ad-tag--open");
+    }
+
+    if (cardSelected && !cardDisabled) {
+      card.onmouseover = function () {
+        cardTagline.innerHTML = "Сказочное заморское яство";
+        cardTagline.style.color = "#666666";
+      };
+      card.onmouseout = function () {
+        cardTagline.innerHTML = "Котэ не одобряет?";
+        cardTagline.style.color = "#e62e7a";
+      };
+    } else if (!cardSelected) {
+      card.onmouseover = function () {};
+      card.onmouseout = function () {};
+    }
+  });
+};
+
+cardHandlers();
